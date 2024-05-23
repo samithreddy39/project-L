@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SVG Animated Birds</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+
+</head>
+<body>
+    <nav>
+        <ul>
+            <li><a href="#section1">Section 1</a></li>
+            <li><a href="#section2">Section 2</a></li>
+            <li><a href="#section3">Section 3</a></li>
+            <li><a href="#section4">Section 4</a></li>
+        </ul>
+    </nav>
+    <div id="section1" class="section">
+        <div class="container">
+            <h1> Animated Birds</h1>
+            
+            <div class="bird-container bird-container--one">
+                <div class="bird bird--one"></div>
+            </div>
+            
+            <div class="bird-container bird-container--two">
+                <div class="bird bird--two"></div>
+            </div>
+            
+            <div class="bird-container bird-container--three">
+                <div class="bird bird--three"></div>
+            </div>
+            
+            <div class="bird-container bird-container--four">
+                <div class="bird bird--four"></div>
+            </div>
+        </div>
+        
+    </div>
+    <div id="section2" class="section">
+        <div class="container">
+            <!-- Content for section 2 goes here -->
+            <h2>Section 2</h2>
+            <p>This is the content for section 2.</p>
+        </div>
+        <!-- <div class="section-title">Section 2</div> -->
+    </div>
+    <div id="section3" class="section">
+        <div class="container">
+            
+            <form action="/upload" method="post" enctype="multipart/form-data">
+                <div class="input-file">
+                    <label for="audioFile">Choose Audio File</label>
+                    <input type="file" id="audioFile" name="audioFile" accept="audio/*">
+                </div>
+                
+                <div class="input-submit">
+                    <input type="submit" value="Upload">
+                </div>
+            </form>
+            
+            <div id="outputImages">
+                <img src="{{ outputs.image_path }}" >
+            </div>
+            
+    
+        </div>
+        
+    </div>
+    <div id="section4" class="section">
+        <div class="container">
+            <!-- Content for section 4 goes here -->
+            <h2>Section 4</h2>
+            <p>This is the content for section 4.</p>
+        </div>
+      
+    </div>
+    {% if outputs %}
+    <!-- JavaScript to scroll to section -->
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            var scrollToSection = 3 ;
+            function scrollToSectionFunction(sectionNumber) {
+                var section = document.getElementById('section' + sectionNumber);
+                if (section) {
+                    section.scrollIntoView({ behavior: 'smooth' });
+                }
+            }
+            scrollToSectionFunction(scrollToSection);
+        });
+    </script>
+    {% endif %}
+    
+</body>
+</html>
+
+
+
